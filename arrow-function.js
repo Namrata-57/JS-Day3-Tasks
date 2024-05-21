@@ -2,40 +2,41 @@
 
 //  a. Print odd numbers in an array. 
 
-let arr=[0,1,2,3,4,5,6,7,8,9,11,10,12,13,14,15,16,17,18,19];
+let arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 10, 12, 13, 14, 15, 16, 17, 18, 19];
 
 let odd = () => {
-  let odd= arr.filter(num => num %2 ==1);
-  console.log(odd);
+    let odd = arr.filter(num => num % 2 == 1);
+    console.log(odd);
 }
-odd();
+odd(); // Output: [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
 
 // b. Convert all the strings to title caps in a string array.
 
 const stringArray = ["neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit"];
 
-const titleCapsArray = stringArray.map ((str) => {
+const titleCapsArray = stringArray.map((str) => {
     return str.replace(/\b\w+/g, function (word) {
-      return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase();
+        const [firstChar, ...restChar] = word;
+        return firstChar.toUpperCase() + restChar.join('').toLowerCase();
     });
-  });
-console.log(titleCapsArray);
+});
+console.log(titleCapsArray); // Output: ['Neque Porro Quisquam Est Qui Dolorem Ipsum Quia Dolor Sit Amet, Consectetur, Adipisci Velit']
 
 // c. Sum of all numbers in an array. 
 
-let input = [2,5,8,7,6,9,3,4,6];
+let input = [2, 5, 8, 7, 6, 9, 3, 4, 6];
 
 let sum = () => {
-let j = 0;
-for(var i = 0; i < input.length; i++){
-    j = j + input[i];
-} console.log(j);
+    let j = 0;
+    for (var i = 0; i < input.length; i++) {
+        j = j + input[i];
+    } console.log(j);
 }
-sum();
+sum(); // Output: 50
 
 // d. Return all the prime numbers in an array.
 
-let num = [22,55,41,16,8,7,23,45,6,91,17];
+let num = [22, 55, 41, 16, 8, 7, 23, 45, 6, 91, 17];
 
 const findPrimeNumbers = (arr) => {
     const isPrime = (num) => {
@@ -55,7 +56,7 @@ const findPrimeNumbers = (arr) => {
     return num;
 };
 const result = findPrimeNumbers(num);
-console.log(result);
+console.log(result); // Output: [41, 7, 23, 17]
 
 // e. Return all the palindromes in an array.
 
@@ -68,4 +69,4 @@ const Palindromes = (arr) => {
     });
 };
 const output = Palindromes(inputArray);
-console.log(output);
+console.log(output); //Output: ['mom', 'madam', 'noon']

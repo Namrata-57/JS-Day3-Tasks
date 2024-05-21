@@ -2,48 +2,49 @@
 
 //  a. Print odd numbers in an array. 
 
-let arr=[0,1,2,3,4,5];
+let arr = [0, 1, 2, 3, 4, 5];
 let output_array = [];
 
-let odd = function() {
-    for(var i =0; i < arr.length; i++){
-        if(arr[i]%2 ===1){ 
+let odd = function () {
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] % 2 === 1) {
             output_array.push(arr[i]);
-          }
+        }
     }
     console.log(output_array);
 };
-odd();
+odd();  // Output:  [1, 3, 5]
 
 // b. Convert all the strings to title caps in a string array.
 
 let Array = ["convert all the strings to title caps in a string array"];
 
-let titleCase = Array.map(function (str){
-    return str.replace(/\b\w+/g, function (caps){
-    return caps.charAt(0).toUpperCase() + caps.substr(1).toLowerCase();
+let titleCase = Array.map(function (str) {
+    return str.replace(/\b\w+/g, function (word) {
+        const [firstChar, ...restChar] = word;
+        return firstChar.toUpperCase() + restChar.join('').toLowerCase();
     })
 })
-console.log(titleCase);
+console.log(titleCase); // Output: ['Convert All The Strings To Title Caps In A String Array']
 
 // c. Sum of all numbers in an array. 
 
-let input = [222,5,81,72,656,90,346];
+let input = [222, 5, 81, 72, 656, 90, 346];
 
-let sum = function() {
-let j = 0;
-for(var i = 0; i < input.length; i++){
-    j = j + input[i];
-} console.log(j);
+let sum = function () {
+    let j = 0;
+    for (var i = 0; i < input.length; i++) {
+        j = j + input[i];
+    } console.log(j);
 }
-sum();
+sum(); // Output: 1472
 
 // d. Return all the prime numbers in an array.
- 
-let num = [22,55,41,16,8,7,23,45,6,91];
 
-const findPrimeNumbers = function(arr){
-    const isPrime = function(num){
+let num = [22, 55, 41, 16, 8, 7, 23, 45, 6, 91];
+
+const findPrimeNumbers = function (arr) {
+    const isPrime = function (num) {
         if (num < 2) {
             return false;
         }
@@ -54,33 +55,33 @@ const findPrimeNumbers = function(arr){
         }
         return true;
     };
-    const num = arr.filter(function(num){
+    const num = arr.filter(function (num) {
         return isPrime(num);
     });
     return num;
 };
 const result = findPrimeNumbers(num);
-console.log(result);
+console.log(result);  // Output: [41, 7, 23]
 
 // e. Return all the palindromes in an array.
 
 const inputArray = ['level', 'greet', 'might', 'refer'];
 
-const Palindromes = function(arr) {
-    return arr.filter(function(str) {
+const Palindromes = function (arr) {
+    return arr.filter(function (str) {
         const reversedStr = str.split('').reverse().join('');
         return str === reversedStr;
     });
 };
 const output = Palindromes(inputArray);
-console.log(output);
+console.log(output); // Output:  ['level', 'refer']
 
 //f. Return median of two sorted arrays of the same size. 
-    
+
 const arr1 = [1, 2, 3, 4];
 const arr2 = [5, 6, 7, 8];
 
-const median = function(arr1, arr2) {
+const median = function (arr1, arr2) {
     const mergedArray = arr1.concat(arr2).sort((a, b) => a - b);
     const n = mergedArray.length;
     const mid = n / 2;
@@ -92,38 +93,39 @@ const median = function(arr1, arr2) {
     }
 };
 const medianOutput = median(arr1, arr2);
-console.log(medianOutput);
+console.log(medianOutput);  //Output: 4.5
 
 //g. Remove duplicatesfrom an array.
- 
+
 const inputArr = ['A', 'B', 'C', 'D', 'E', 'F', 'A', 'B', 'E'];
 
-const Duplicate = function(arr) {
-    return arr.filter(function(item, index) {
+const Duplicate = function (arr) {
+    return arr.filter(function (item, index) {
         return arr.indexOf(item) === index;
     });
 };
 const output1 = Duplicate(inputArr);
-console.log(output1);
+console.log(output1);  //Output: ['A', 'B', 'C', 'D', 'E', 'F']
 
- // h. Rotate an array by k times. 
+// h. Rotate an array by k times. 
 
-const reversedArray = [1,2,3,4,5];
+const reversedArray = [1, 2, 3, 4, 5];
 
-reverse = function(arr, start, end){
-  while(start < end){
-    let temp = arr[start];
-    arr[start] = arr[end];
-    arr[end] = temp;
-    start++;
-    end--;
-  }};
+reverse = function (arr, start, end) {
+    while (start < end) {
+        let temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+        start++;
+        end--;
+    }
+};
 
-var rotate = function(reversedArray, k){
-  reverse(reversedArray, 0 , reversedArray.length-1);
-  reverse(reversedArray, 0, k-1);
-  reverse(reversedArray, k, reversedArray.length-1);
+var rotate = function (reversedArray, k) {
+    reverse(reversedArray, 0, reversedArray.length - 1);
+    reverse(reversedArray, 0, k - 1);
+    reverse(reversedArray, k, reversedArray.length - 1);
 }
 
 rotate(reversedArray, 2);
-console.log(reversedArray); 
+console.log(reversedArray);  // Output: [4, 5, 1, 2, 3]
